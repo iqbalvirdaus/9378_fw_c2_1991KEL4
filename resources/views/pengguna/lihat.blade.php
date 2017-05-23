@@ -15,7 +15,7 @@
 		<tr>
 			<td>Password</td>
 			<td>:</td>
-			<td>{{ $pengguna->password }}</td>
+			<td>{{ md5($pengguna->password) }}</td>
 		</tr>
 		<tr>
 			<td class="col-xs-4">Dibuat Tanggal</td>

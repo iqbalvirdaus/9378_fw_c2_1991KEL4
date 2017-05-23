@@ -1,9 +1,9 @@
 <?php
 
 namespace App;
-use Illuminate\Auth\Authenticaatable;
+use Illuminate\Auth\Authenticaatable;//
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticable;
+use Illuminate\Foundation\Auth\User as Authenticable;//
 class pengguna extends Authenticable
 {
     //

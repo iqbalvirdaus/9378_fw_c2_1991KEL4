@@ -13,7 +13,7 @@ class PenggunaRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,10 @@ class PenggunaRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
+        $validasi=[ 
+            'username'=>'required|string|min:8',
+            'password'=>'required|string|min:8',
+            
         ];
     }
 }

@@ -21,5 +21,10 @@ class penawaran extends Model
     	# code...
     	return $this->belongsTo(barang::class);
     }
+    public function transaksi()
+    {
+        # code...
+        return $this->hasOne(transaksi::class,'penawaran_id');
+    }
 
 }

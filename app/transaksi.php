@@ -8,7 +8,7 @@ class transaksi extends Model
 {
     //
     protected $table ='transaksis';
-    protected $fillable =['barang_id','pembeli_id','pemilik_id','harga_akhir','lokasi','waktu','status_transaksi'];
+    protected $fillable =['barang_id','pembeli_id','pemilik_id','penawaran_id','harga_akhir','lokasi','status_transaksi'];
     protected $guarded =['id'];
 
     public function barang()
@@ -26,6 +26,12 @@ class transaksi extends Model
     	# code...
     	return $this->belongsTo(pemilik::class);
     }
+    public function penawaran()
+    {
+        # code...
+        return $this->belongsTo(penawaran::class);
+    }
+
 
     public function getNamaBarangAttribute()
     {

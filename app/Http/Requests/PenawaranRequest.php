@@ -25,7 +25,7 @@ class PenawaranRequest extends Request
     {
         return [
             //
-            'harga_penawaran'=>'required|float',
+            'harga_penawaran'=>'required|numeric|min:1',
         ];
     }
 }

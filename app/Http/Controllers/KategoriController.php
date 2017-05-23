@@ -11,7 +11,7 @@ class KategoriController extends Controller
     //
     public function awal(){
 		/*return "Hello dari PenggunaController";*/
-		return view('kategori.awal', ['data'=>kategori::all()]);
+		return view('kategori.awal', ['data'=>kategori::all()]); 
 	}
 
 	public function tambah(){

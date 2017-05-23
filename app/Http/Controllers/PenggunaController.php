@@ -3,7 +3,7 @@
 namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
-	
+use Hash;
 use App\Http\Requests;
 use App\Pengguna;
 
@@ -12,25 +12,27 @@ class PenggunaController extends Controller
     //
 	public function awal(){
 		//return "Hello dari PenggunaController";
-		return view('pengguna.awal', ['data'=>Pengguna::all()]);
+		$data = pengguna::where('level','user')->get(); 
+		return view('pengguna.awal',compact('data'));
 	}
 
 	public function tambah(){
 		//return $this->simpan();
-		return view('pengguna.tambah');
+		return view('Auth.register');
 	}
 	public function simpan(Request $input){
 
 		$this->validate($input,[
 			'username'=>'required',
-			'password'=>'required',
+			'password'=>'required',	
 		]);
 
 		$pengguna= new Pengguna();
 		$pengguna->username=$input->username;
+		$pengguna->email=$input->email;
 		$pengguna->password=$input->password;
 		$informasi = $pengguna->save() ? 'Berhasil simpan data' :'Gagal simpan data';
-		return redirect('pengguna')->with(['informasi'=>$informasi]);
+		return redirect('/')->with(['informasi'=>$informasi]);
 		//$pengguna->save();
 		//return "data dengan username {$pengguna->username} telah disimpan";
 	}

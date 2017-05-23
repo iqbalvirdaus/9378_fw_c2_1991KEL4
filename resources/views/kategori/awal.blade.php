@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('container') 
+@section('container')  
 <div class="panel panel-default">
 	<div class="panel-default">
 			<strong> SELURUH DATA KATEGORI </strong>
@@ -30,7 +30,7 @@
 								<i class="fa fa-eye"></i>
 							</a> -->
 
-							<a href="{{url('kategori/hapus/'.$kategori->id)}}" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="hapus">
+							<a href="{{url('kategori/hapus/'.$kategori->id)}}" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="hapus" onclick="javascript: return confirm('Yakin akan hapus data ini?')"> 
 								<i class="fa fa-trash-o"> </i>
 							</a>
 						</td>

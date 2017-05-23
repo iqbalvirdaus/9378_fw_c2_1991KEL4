@@ -29,9 +29,12 @@ class PembeliRequest extends Request
             'gender'=>'required|string',
             'alamat'=>'required',
         ];
-        if ($this->is('pembeli/tambah')) {
+        if ($this->is('pembeli/simpan')) {
             # code...
-            $validasi['no_telp'] = 'required';
+            $validasi['no_telp'] = 'required|max:12';
+            $validasi['username'] = 'required|min:8';
+            $validasi['email'] = 'required|email|max:255|unique:penggunas';
+            $validasi['password'] = 'required|confirmed|min:8';
         }
         return $validasi;
     }

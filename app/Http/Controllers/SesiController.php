@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Pengguna; 
+use App\Pengguna;  
 use Illuminate\Auth\SessionGuard;
 use Auth;
 class SesiController extends Controller
@@ -13,8 +13,14 @@ class SesiController extends Controller
     //
 	public function index()
 	{
-		# code...
-		return view('master');
+	 	# code...
+		if (Auth::check() && Auth::user()->level !='admin') {
+				# code...
+				return view('master');
+			}else if (Auth::check() && Auth::user()->level !='user') {
+				return view('admin.master');
+			}
+		return view('auth.login');
 	}
 
 	public function form()
@@ -24,7 +30,7 @@ class SesiController extends Controller
 			# code...
 			return  redirect('/');
 		}
-		return view('login');
+		return view('Auth.login');
 	}
 	public function validasi(Request $input)
 	{
@@ -37,10 +43,14 @@ class SesiController extends Controller
 		if (! is_null($pengguna)) {
 			# code...
 			Auth::login($pengguna);
-			if (Auth::check()) {
+			if (Auth::check() && Auth::user()->level !='admin') {
 				# code...
-				return redirect('/')->with('informasi',"Welcome !!! ".Auth::user()->username);
+				return redirect('/barang')->with('informasi',"Welcome !!! ".Auth::user()->username);
+			}else if (Auth::check() && Auth::user()->level !='user') {
+				return redirect('/admin')->with('informasi',"Welcome !!! ".Auth::user()->username);
 			}
+			
+
 		}
 		return redirect('login')->withErrors(['Pengguna tisak di temukan']);
 

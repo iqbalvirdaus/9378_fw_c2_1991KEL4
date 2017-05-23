@@ -28,8 +28,8 @@ class BarangRequest extends Request
             'merk'=>'required',
             'warna'=>'required',
             'foto'=>'required',
-            'jumlah'=>'required|integer',
-            'harga'=>'required|float',
+            'jumlah'=>'required|numeric|min:1',
+            'harga'=>'required|numeric|min:1',
 
         ];
         if ($this->is('barang/tambah')) {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-      <meta charset="utf-8" />
+<head> 
+      <meta charset="utf-8" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
 	<!-- BOOTSTRAP STYLES-->
@@ -30,10 +30,10 @@
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> {{Auth::user()->username}} &nbsp; <a href="{{url('/logout')}}" class="btn btn-danger square-btn-adjust"  onclick="javascript: return confirm('Yakin akan keluar ?')">Logout</a> </div>
         </nav>   
            <!-- /. NAV TOP  -->
-                <nav class="navbar-default navbar-side" role="navigation">
+            <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
@@ -42,15 +42,15 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
 				
 					
                     <li>
-                        <a class="active-menu"  href="{{url('index')}}"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a class="active-menu"  href="{{url('/admin')}}"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="{{url('pengguna')}}"><i class="fa fa-user fa-3x"></i><b>USER</b></a>
                     </li>
 
-                    <li>
+      <!--               <li>
                         <a href="{{url('postingan')}}"><i class="fa fa-qrcode fa-3x"></i> <b>POSTINGAN</b></a>
-                    </li>
+                    </li> -->
 				    <li >
                         <a href="{{url('transaksi')}}"><i class="fa fa-money fa-3x"></i> <b>TRANSAKSI</b></a>
                     </li>   
@@ -59,9 +59,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                     </li>	
 						                   
                 
-                     <li>
+ <!--                     <li>
                         <a  href="{{url('blank')}}"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
-                    </li>	
+                    </li>	 -->
                 </ul>
                
             </div>
